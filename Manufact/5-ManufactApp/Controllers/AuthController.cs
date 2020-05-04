@@ -23,7 +23,7 @@ namespace _5_ManufactApp.Controllers
 
             if (token == null) return Unauthorized();
 
-            return Ok(token);
+            return Ok(new { Token = token });
         }
 
         [HttpPost("register")]

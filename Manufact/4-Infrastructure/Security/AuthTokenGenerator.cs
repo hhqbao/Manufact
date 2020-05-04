@@ -1,5 +1,4 @@
 ﻿using _1_Domain;
-using _3_Application.Dtos.Security;
 using _3_Application.Interfaces.Security;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -21,7 +20,7 @@ namespace _4_Infrastructure.Security
             _config = config;
         }
 
-        public AuthTokenDto CreateToken(ApplicationUser user, IEnumerable<string> roles = null)
+        public string CreateToken(ApplicationUser user, IEnumerable<string> roles = null)
         {
             var claims = new List<Claim>
             {
@@ -43,7 +42,7 @@ namespace _4_Infrastructure.Security
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return new AuthTokenDto { Token = tokenHandler.WriteToken(token), ValidTo = token.ValidTo };
+            return tokenHandler.WriteToken(token);
         }
     }
 }

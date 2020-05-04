@@ -1,5 +1,4 @@
 ﻿using _1_Domain;
-using _3_Application.Dtos.Security;
 using _3_Application.Interfaces.Security;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +19,7 @@ namespace _4_Infrastructure.Security
             _tokenGenerator = tokenGenerator;
         }
 
-        public async Task<AuthTokenDto> LoginAsync(string username, string password)
+        public async Task<string> LoginAsync(string username, string password)
         {
             var user = await _userManager.FindByNameAsync(username);
 
