@@ -1,5 +1,7 @@
 using _1_Domain;
 using _2_Persistent;
+using _3_Application.Interfaces.Security;
+using _4_Infrastructure.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -52,6 +54,9 @@ namespace _5_ManufactApp
 
             services.AddMvcCore();
             services.AddCors();
+
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IAuthTokenGenerator, AuthTokenGenerator>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
