@@ -1,8 +1,7 @@
 import { DialogService } from './../../_services/dialog.service';
 import { AuthService } from './../../_services/auth.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import UserForLogin from 'src/app/models/auth/UserForLogin';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -10,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
+  @Output() loginCallback = new EventEmitter();
   model: UserForLogin;
 
   constructor(
@@ -23,9 +23,7 @@ export class LoginFormComponent implements OnInit {
 
   login(): void {
     this.authService.login(this.model).subscribe(
-      (_) => {
-        this.dialogService.success('Signed in successfully!');
-      },
+      (_) => this.loginCallback.emit(),
       (error) => this.dialogService.error(error)
     );
   }

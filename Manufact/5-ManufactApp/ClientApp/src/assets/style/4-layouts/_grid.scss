@@ -15,8 +15,12 @@ $col-gap: 1rem;
 
     &.middle {
       align-items: center;
-      display: inline-flex;
+      display: flex;
     }
+  }
+
+  .col-1-2 {
+    width: calc((100% -#{$col-gap}) / 2);
   }
 
   .col-1-3 {

@@ -1,4 +1,7 @@
+import { AuthService } from './../../_services/auth.service';
+import { DialogService } from './../../_services/dialog.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -8,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 export class LoginPageComponent implements OnInit {
   currentYear: number = new Date().getFullYear();
 
-  constructor() {
+  constructor(
+    private dialogService: DialogService,
+    private router: Router,
+    private authService: AuthService
+  ) {
     document.title = 'Manufact - Sign In';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this.authService.logOut();
+    }
+  }
+
+  onLoginCallback(): void {
+    this.dialogService.success('Login Successfully');
+    this.router.navigate(['/admin']);
+  }
 }
