@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DialogService } from './../../_services/dialog.service';
+import { AuthService } from './../../_services/auth.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-nav-bar',
@@ -6,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-nav-bar.component.scss'],
 })
 export class AdminNavBarComponent implements OnInit {
-  constructor() {}
+  constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
+
+  logout = () => {
+    this.authService.logOut();
+    this.router.navigate(['']);
+  };
 }

@@ -1,9 +1,11 @@
-import { DialogService } from './dialog.service';
-import UserForLogin from 'src/app/models/auth/UserForLogin';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from './../../environments/environment';
+
+import UserForLogin from 'src/app/_models/auth/UserForLogin';
+import { DialogService } from './dialog.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,37 +13,45 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthService {
   private baseUrl: string;
   private jwtHelper: JwtHelperService;
-  decodedToken: any;
+
+  token: string;
 
   constructor(private http: HttpClient, private dialogService: DialogService) {
-    this.baseUrl = 'http://localhost:5000/api/auth';
     this.jwtHelper = new JwtHelperService();
   }
 
-  login(model: UserForLogin) {
-    return this.http.post<string>(this.baseUrl + '/login', model).pipe(
-      map((response: any) => {
-        if (response) {
-          localStorage.setItem('token', response.token);
-          this.decodedToken = this.jwtHelper.decodeToken(response.token);
-        }
-      })
-    );
+  get decodedToken() {
+    if (!this.token) {
+      return null;
+    }
+
+    return this.jwtHelper.decodeToken(this.token);
   }
 
-  isLoggedIn(): boolean {
-    const token = localStorage.getItem('token');
-
-    if (!token) {
+  get isLoggedIn(): boolean {
+    if (!this.token) {
       return false;
     }
 
-    return !this.jwtHelper.isTokenExpired(token);
+    return !this.jwtHelper.isTokenExpired(this.token);
   }
 
-  logOut() {
+  login = (model: UserForLogin) => {
+    return this.http
+      .post<string>(environment.baseUrl + '/auth/login', model)
+      .pipe(
+        map((response: any) => {
+          if (response) {
+            this.token = response.token;
+            localStorage.setItem('token', this.token);
+          }
+        })
+      );
+  };
+
+  logOut = () => {
+    this.token = null;
     localStorage.removeItem('token');
-    this.decodedToken = null;
     this.dialogService.message('You have been logged out!');
-  }
+  };
 }

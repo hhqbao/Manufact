@@ -1,7 +1,7 @@
 import { DialogService } from './../../_services/dialog.service';
 import { AuthService } from './../../_services/auth.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import UserForLogin from 'src/app/models/auth/UserForLogin';
+import UserForLogin from 'src/app/_models/auth/UserForLogin';
 
 @Component({
   selector: 'app-login-form',
@@ -11,6 +11,7 @@ import UserForLogin from 'src/app/models/auth/UserForLogin';
 export class LoginFormComponent implements OnInit {
   @Output() loginCallback = new EventEmitter();
   model: UserForLogin;
+  isLoading = false;
 
   constructor(
     private authService: AuthService,
@@ -21,10 +22,17 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  login(): void {
+  login = (): void => {
+    this.isLoading = true;
     this.authService.login(this.model).subscribe(
-      (_) => this.loginCallback.emit(),
-      (error) => this.dialogService.error(error)
+      (_) => {
+        this.loginCallback.emit();
+        this.isLoading = false;
+      },
+      (error) => {
+        this.isLoading = false;
+        this.dialogService.error(error);
+      }
     );
-  }
+  };
 }

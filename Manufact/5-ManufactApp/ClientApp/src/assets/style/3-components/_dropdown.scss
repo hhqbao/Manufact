@@ -9,6 +9,7 @@
     cursor: pointer;
     display: inline-flex;
     font-weight: 700;
+    outline: none;
 
     & > i {
       &:not(:first-child) {

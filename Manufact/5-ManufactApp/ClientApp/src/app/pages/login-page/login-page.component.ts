@@ -20,13 +20,13 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.authService.isLoggedIn()) {
-      this.authService.logOut();
+    if (this.authService.isLoggedIn) {
+      this.router.navigate(['/admin']);
     }
   }
 
-  onLoginCallback(): void {
+  onLoginCallback = (): void => {
     this.dialogService.success('Login Successfully');
     this.router.navigate(['/admin']);
-  }
+  };
 }

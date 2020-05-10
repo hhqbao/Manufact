@@ -1,6 +1,6 @@
 <div class="admin-nav-bar row">
   <div class="col-1-2 middle pl-3">
-    <button type="button" class="admin-nav-bar__btn">
+    <button type="button" class="admin-nav-bar__btn" appLeftNavTrigger>
       <i class="fa fa-bars"></i>
     </button>
     <button type="button" class="admin-nav-bar__btn">
@@ -8,13 +8,13 @@
     </button>
   </div>
   <div class="col-1-2 middle admin-nav-bar__right-box">
-    <div class="dropdown active">
+    <div class="dropdown" appDropdownBtn>
       <button type="button" class="dropdown__toggle">
         <img
           class="dropdown__avatar"
           src="./../../../assets/images/avatar.jpg"
         />
-        John Doe
+        {{ authService.decodedToken?.unique_name | titlecase }}
         <i class="fa fa-caret-down"></i>
       </button>
       <ul class="dropdown__list" style="top: 125%;">
@@ -38,7 +38,7 @@
         </li>
         <li class="dropdown__divider"></li>
         <li>
-          <a href="#">
+          <a (click)="logout()">
             <i class="fa fa-power-off"></i>
             Logout
           </a>
