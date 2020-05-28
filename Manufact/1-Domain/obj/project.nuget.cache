@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ngU/hqbG+rn3D96avYdqI+K6Kab9vkEx3R6Qa0PHHrgbGClekxGFFGobHgfD4BTDE3dEvspSTxD5dr2qHq4DMQ==",
+  "dgSpecHash": "IyqpLtJqKGdDjam9k09MNA5px2ZRFdxivPfe91zYA+jHohth+kaPpck+VWAaM6zZl2NW/WAAbmWbTV4N376oNA==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitHub\\Manufact\\Manufact\\1-Domain\\1-Domain.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,8 @@
     "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.extensions.logging\\3.1.3\\microsoft.extensions.logging.3.1.3.nupkg.sha512",
     "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.3\\microsoft.extensions.logging.abstractions.3.1.3.nupkg.sha512",
     "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.extensions.options\\3.1.3\\microsoft.extensions.options.3.1.3.nupkg.sha512",
-    "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.3\\microsoft.extensions.primitives.3.1.3.nupkg.sha512"
+    "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.3\\microsoft.extensions.primitives.3.1.3.nupkg.sha512",
+    "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }

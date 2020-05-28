@@ -1,18 +1,21 @@
-import { AdminHomePageComponent } from './pages/admin-pages/admin-home-page/admin-home-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { AdminLayoutComponent } from './layouts/admin-layout.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from './_guards/auth.guard';
 
 export const appRoutes: Routes = [
+  { path: 'login', component: LoginPageComponent },
   {
-    path: 'admin',
+    path: '',
     component: AdminLayoutComponent,
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],
     children: [
-      { path: '', component: AdminHomePageComponent, pathMatch: 'full' },
+      {
+        path: 'dashboard',
+        component: DashboardPageComponent,
+      },
     ],
   },
-  { path: '', component: LoginPageComponent, pathMatch: 'full' },
 ];

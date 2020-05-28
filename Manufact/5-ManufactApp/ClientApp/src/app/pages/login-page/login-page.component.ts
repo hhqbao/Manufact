@@ -21,12 +21,12 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn) {
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
   onLoginCallback = (): void => {
     this.dialogService.success('Login Successfully');
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/dashboard']);
   };
 }

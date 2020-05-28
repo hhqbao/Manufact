@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "T43poKrCaFCgi7oNGJc96+1kGJs+0Bbn573LUJgurGYsZ1sNpmBydvv5ZC2jf/15bpaBYj8oNpiOnb4CfjKi2Q==",
+  "dgSpecHash": "LKHeODXYP2JNGJj/vMcbG+vbniPF5JI41FLmhoz5BQGyI0xTn/Bt1Z3V/mk/3CKvsVhUpt2p+YjhZwFj68k5Bg==",
   "success": true,
   "projectFilePath": "D:\\Documents\\GitHub\\Manufact\\Manufact\\4-Infrastructure\\4-Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -117,7 +117,8 @@
     "C:\\Users\\hhqba\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\hhqba\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\hhqba\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\hhqba\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\hhqba\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\hhqba\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }
